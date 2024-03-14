@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
 import PropTypes from "prop-types";
 import like from "../../assets/like.png";
 import unlike from "../../assets/unlike.png";
@@ -7,7 +6,6 @@ import "./LikeFunction.scss";
 import { useGlobalContext } from "../Context/GlobalContextProvider";
 
 function LikeFunction({ className, id }) {
-  const { artworks } = useLoaderData();
   const { favorites, getFavorites, userProfil } = useGlobalContext();
   const [liked, setLiked] = useState(null);
 
@@ -30,9 +28,8 @@ function LikeFunction({ className, id }) {
         }
       );
     } else {
-      const artwork = artworks.find((e) => e.id === id);
       const data = {
-        artworkId: artwork.id,
+        artworkId: id,
         userId: userProfil.id,
       };
       await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/favorite/`, {

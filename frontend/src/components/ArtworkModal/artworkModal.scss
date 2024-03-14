@@ -35,13 +35,13 @@
   font-family: $font;
   @media screen and (min-width: 768px) {
     width: 70%;
-    height: 80%;
+    height: auto;
     display: flex;
     align-items: center;
   }
   @media screen and (min-width: 1000px) {
     width: 80%;
-    height: 50%;
+    height: auto;
     display: flex;
     align-items: center;
   }
